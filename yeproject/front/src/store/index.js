@@ -1,27 +1,22 @@
 import{
     createStore,
 } from 'vuex';
+import app from './modules/app';
+import session from './modules/session'
+import db from './modules/db'
 
 export default createStore({
+    modules:{
+        session,
+        app,
+        db
+
+    },
     state:{
-        test:0
+        tagList:[],
+        collapse:false
     },
-    mutations:{ //同步
-        add(state){
-            state.test++
-        },
-        min(state){
-            state.test--
-        },
-        set99(state,payload){
-            state.test = payload
-        }
-    },
-    actions:{
-        change(context,payload){  //异步
-            setTimeout(()=>{
-                context.commit('set99',payload)
-            },1500);
-        }
+    mutations:{ 
+        
     }
 });
